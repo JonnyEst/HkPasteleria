@@ -1,0 +1,23 @@
+<h2>Pasteles en proceso </h2>
+<div class="col-md-4" *ngFor="let cake of cake" >
+    <div class="card text-center">
+        <div class="card-header bg-dark text-white d-flex justify-content-between align-items-center">
+              {{cake.nombre}}  
+            <button class="btn btn-danger" (click)="deleteCake(cake.id)">
+                <i class="far far-trash-alt"></i>
+            </button>
+        </div>
+        <img src="{{cake.img}}" class="card-img-top">
+        <div class="card-body">
+            <p>Descripcion: {{ cake.descripcion}} </p>
+            <p>Especificaciones: {{cake.especificaciones}}</p>
+            <!--<p>Fecha inicio: {{cake.fecha_inicio}}</p>
+            <p>Fecha fin: {{cake.fecha_fin}}</p> -->
+            <p>Pastelero: {{cake.pastelero}}</p>
+            <p>Peso: {{cake.peso}}</p>
+            <a [routerLink]="['/cake/edit', cake.id]" class="btn btn-info btn-block">
+                EDIT CAKE
+            </a>
+        </div>
+    </div>
+</div>

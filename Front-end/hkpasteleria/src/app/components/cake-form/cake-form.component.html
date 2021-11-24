@@ -1,0 +1,57 @@
+<h2>Pasteleria Hello Kitty-Añadir</h2>
+<div class="col-md-4 offset-md-2">
+    <div class="card">
+        <div class="card-body">
+            <form >
+                <div class="form-group">
+                    <input type="text" name="name" [(ngModel)]="cake.nombre" placeholder="Name" class="form-control" autofocus>
+                </div>
+                <div class="form-group">
+                    <input type="text" name="type" [(ngModel)]="cake.tipo" placeholder="Tipo" class="form-control" >
+                </div>
+                <div class="form-group">
+                    <input type="number" name="peso" [(ngModel)]="cake.peso"  placeholder="Peso" class="form-control" >
+                    <p>Peso</p>
+                </div>
+                <div class="form-group">
+                  <textarea name="especificacion" [(ngModel)]="cake.especificacion" placeholder="Especification" rows="2" class="form-control"></textarea>
+                </div>
+                <div class="form-group">
+                    <textarea name="description" [(ngModel)]="cake.descripcion" placeholder="Description" rows="2" class="form-control"></textarea>
+                </div>
+                <div class="form-group">
+                <input type="text" name="pastelero" [(ngModel)]="cake.pastelero" placeholder="Pastelero" class="form-control" > 
+                </div>
+                <div class="form-group">
+                    <input type="url" name="image" [(ngModel)]="cake.img" placeholder="Image" class="form-control">
+                </div>
+                <!-- <div>                    
+                    <input type="date" name="date" [(ngModel)]= "cake.fecha_inicio" class="form-control">
+                    <p>Fecha inicio</p>
+                </div>
+                <div>                  
+                    <input type="date" name="date" [(ngModel)]= "cake.fecha_fin" class="form-control">
+                    <p>Fecha fin</p>
+                </div> -->
+               <button class="btn btn-success btn-block" (click)="edit ? updateCake() :  saveNewCake()">
+                    Save
+                </button> 
+            </form>
+        </div>
+    </div>
+</div>
+
+<div class="col-md-4">
+    <div class="card card-body text-center">
+        <img [src]="cake.img == ''? '/assets/no-image.png' : cake.img" class="card-img-top">
+        <h3>{{cake.id}}. {{cake.nombre == ''? 'Nombre del pastel    ' : cake.nombre}}</h3>
+        <p>{{cake.tipo == ''? 'Tipo de pastel  ' : cake.tipo}}</p>
+        <p>{{cake.peso}}</p>      
+        <p>{{cake.especificacion ==  ''? 'Especificacion  ' : cake.especificacion}}</p>
+        <p>{{cake.descripcion == ''? 'Descripcion  ' : cake.descripcion}}</p>
+        <p>{{cake.pastelero == ''? 'Pastelero  ' : cake.pastelero}}</p>  
+        <!-- <p>{{cake.fecha_inicio}}</p>
+        <p>{{cake.fecha_fin}}</p> -->
+        <p>{{cake.created_at | date: 'yyyy-MM-dd'}}</p>
+    </div>
+</div>
